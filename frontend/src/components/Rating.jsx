@@ -1,7 +1,7 @@
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa'
 import { isFloat } from '../common'
 
-export default function Rating( {value, text} ) {
+export default function Rating( {value = 0, text = ''} ) {
 
   const totalStarNum = 5
 
