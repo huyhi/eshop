@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux"
 import { useGetProductDetailsQuery } from '../slices/productApiSlice'
 import { addToCart } from '../slices/cartSlice'
 
-const QtyBtn = ({ product, value, onChangeCallback }) => {
+export const QtyBtn = ({ product, value, onChangeCallback }) => {
   return (
     <ListGroup.Item>
       <Row>
