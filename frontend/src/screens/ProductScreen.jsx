@@ -104,7 +104,7 @@ const ProductScreen = () => {
                 </Row>
               </ListGroup.Item>
 
-              {product.countInStock > 0 && <QtyBtn product={product} value={qty} onChangeCallback={(e) => {setQty(e.target.value)}}/>}
+              {product.countInStock > 0 && <QtyBtn product={product} value={qty} onChangeCallback={(e) => {setQty(Number(e.target.value))}}/>}
 
               <ListGroup.Item>
                 <Button 
