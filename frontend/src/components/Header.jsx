@@ -1,7 +1,10 @@
 import { Navbar, Nav, Container, Badge, NavDropdown } from 'react-bootstrap'
+import { useNavigate } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import { FaShoppingCart, FaUser} from 'react-icons/fa'
-import { useSelector } from 'react-redux'
+import { useLogoutMutation } from '../slices/usersApiSlice'
+import { logout } from '../slices/authSlice'
+import { useSelector, useDispatch } from 'react-redux'
 
 const SignInBtn = () => {
   return (
@@ -15,8 +18,19 @@ const SignInBtn = () => {
 
 const LoggedInBtn = ({user}) => {
 
-  const logoutHandler = () => {
-    console.log(user)
+  const dispath = useDispatch()
+  const navigate = useNavigate()
+
+  const [logoutApiCall] = useLogoutMutation()
+
+  const logoutHandler = async () => {
+    try {
+      await logoutApiCall().unwrap()
+      dispath(logout())
+      navigate('/login')
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (
