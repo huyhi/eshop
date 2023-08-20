@@ -21,10 +21,10 @@ router.route('/:id')
   .get(protect, getOrderById)
 
 router.route('/:id/pay')
-  .get(protect, updateOrderToPaid)
+  .put(protect, updateOrderToPaid)
 
 router.route('/:id/deliver')
-  .get(protect, admin, updateOrderToDelivered)
+  .put(protect, admin, updateOrderToDelivered)
 
 
 export default router
